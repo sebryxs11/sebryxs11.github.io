@@ -82,45 +82,99 @@
             gap: 20px;
         }
         
+        /* El fondo de la "ventana" */
         .tarjeta {
-            background-color: #161b22;
-            border-radius: 0px;
-            padding: 25px;
+            background-color: #c0c0c0; /* El gris clásico de Windows */
+            border: 3px solid;
+            border-color: #ffffff #808080 #808080 #ffffff; /* Efecto 3D: luz arriba/izq, sombra abajo/der */
+            padding: 0; /* Quitamos padding para que la barra de título pegue con el borde */
             text-decoration: none;
-            color: inherit;
-            transition: transform 0.2s, border-color 0.2s;
+            color: #000000; /* Texto negro */
             display: flex;
             flex-direction: column;
             position: relative;
-            box-shadow: 0px 8px 15px rgba(0, 0, 0, 0.6); 
+            box-shadow: 2px 2px 0px rgba(0, 0, 0, 0.5); /* Sombra dura exterior */
+            transition: background-color 0.2s;
+            margin-bottom: 20px;
+        }
+        
+        .tarjeta:hover {
+            background-color: #d4d4d4; /* Un gris un poquito más claro al pasar el mouse */
+        }
+        
+        /* La barra azul superior */
+        .tarjeta h2 {
+            margin: 0;
+            padding: 5px 10px;
+            /* Degradado naranja: de oscuro a tu naranja brillante */
+            background: linear-gradient(to right, #b8860b, #ffbc21); 
+            color: #000000; /* Letras negras para que resalten en el naranja */
+            font-size: 1.5rem;
+            display: flex;
+            align-items: center;
+            border-bottom: 2px solid #808080;
+            
+            /* Mantenemos el iconito de carpeta de Windows */
+            background-image: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 16 16"><path fill="%23ffcc00" d="M1 3h5l1 1h8v9H1z"/><path fill="%23ffffff" d="M1 4h5l1 1h7v1H1z"/></svg>');
+            background-repeat: no-repeat;
+            background-position: 10px center;
+            padding-left: 35px; /* Espacio para el icono */
+            padding-right: 80px; /* Espacio para los botones de la ventana */
         }
 
-        .tarjeta:hover {
-            background-color: #21262d;
-            border-color: #8b949e;
+        .window-controls {
+            position: absolute;
+            top: 4px;
+            right: 5px;
+            display: flex;
+            gap: 2px;
         }
         
-        .tarjeta h2 {
-            margin-top: 0;
-            margin-bottom: 15px;
-            padding-bottom: 15px;
-            color: #ffffff;
-            font-size: 2rem;
+        .window-controls button {
+            width: 18px;
+            height: 16px;
+            background-color: #c0c0c0;
+            border: 1px solid;
+            border-color: #ffffff #808080 #808080 #ffffff;
+            color: #000;
+            font-family: 'VT323', monospace;
+            font-size: 12px;
+            font-weight: bold;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            cursor: pointer;
+            padding: 0;
         }
         
+        .window-controls button:active {
+            border-color: #808080 #ffffff #ffffff #808080; /* Efecto de botón presionado */
+        }
+        
+        .window-controls .close {
+            font-family: Arial, sans-serif; /* La X se ve mejor en Arial */
+        }
+        
+        /* El texto de la descripción */
+        .tarjeta p {
+            padding: 15px;
+            margin: 0;
+            font-size: 1.2rem;
+            color: #000000; /* Asegúrate de que se lea en el fondo gris */
+            font-family: 'VT323', monospace;
+        }
+        
+        /* Ajuste para las etiquetas (tags) */
         .tag {
             font-size: 0.9rem;
-            background-color: #21262d;
-            padding: 2px 8px;
-            border-radius: 4px;
-            color: #8b949e;
-            float: right;
+            background-color: #c0c0c0;
+            padding: 2px 6px;
+            color: #000000;
             position: absolute;
-            top: 10px;
-            right: 10px;
-            
-            border: 1px solid #30363d; 
-            z-index: 10;
+            top: 5px;
+            right: 60px; /* Movido a la izquierda para no chocar con los botones */
+            border: 1px solid;
+            border-color: #808080 #ffffff #ffffff #808080; /* Efecto hundido */
         }
 
         .tag-closed {
@@ -182,6 +236,11 @@
             
             <a href="https://github.com/sebryxs11" class="tarjeta">
                 <h2>Project</h2>
+                <div class="window-controls">
+                    <button>_</button>
+                    <button>□</button>
+                    <button class="close">X</button>
+                </div>
                 <span class="tag tag-pending">in progress</span>
                 <p>Sample project 1.</p>
             </a>
