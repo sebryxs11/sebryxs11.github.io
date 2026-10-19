@@ -47,8 +47,8 @@
             animation: alternarMarcos 1s infinite; /* 1s significa que completa un ciclo en 1 segundo (0.5s cada marco) */
             
             /* Para que la imagen se adapte a la pantalla sin deformarse (o usa 'fill' si prefieres que se estire) */
-                background-size: cover; 
-                background-position: center;
+                background-size: 100% 100%; /* El 100% de ancho y 100% de alto lo estira para llenar todo */
+                background-repeat: no-repeat;
                 
                 pointer-events: none;  /* Para que puedas hacer clic en tu página a través del marco */
                 z-index: 9999;          /* Para que el marco esté por encima de todo */
