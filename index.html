@@ -82,44 +82,39 @@
             gap: 20px;
         }
         
-        /* El fondo de la "ventana" */
         .tarjeta {
-            background-color: #c0c0c0; /* El gris clásico de Windows */
+            background-color: #c0c0c0;
             border: 3px solid;
-            border-color: #ffffff #808080 #808080 #ffffff; /* Efecto 3D: luz arriba/izq, sombra abajo/der */
-            padding: 0; /* Quitamos padding para que la barra de título pegue con el borde */
+            border-color: #ffffff #808080 #808080 #ffffff;
+            padding: 0;
             text-decoration: none;
-            color: #000000; /* Texto negro */
+            color: #000000;
             display: flex;
             flex-direction: column;
             position: relative;
-            box-shadow: 2px 2px 0px rgba(0, 0, 0, 0.5); /* Sombra dura exterior */
+            box-shadow: 2px 2px 0px rgba(0, 0, 0, 0.5);
             transition: background-color 0.2s;
             margin-bottom: 20px;
         }
         
         .tarjeta:hover {
-            background-color: #d4d4d4; /* Un gris un poquito más claro al pasar el mouse */
+            background-color: #d4d4d4;
         }
         
-        /* La barra azul superior */
         .tarjeta h2 {
             margin: 0;
             padding: 5px 10px;
-            /* Degradado naranja: de oscuro a tu naranja brillante */
             background: linear-gradient(to right, #b8860b, #ffbc21); 
-            color: #000000; /* Letras negras para que resalten en el naranja */
+            color: #000000;
             font-size: 1.5rem;
             display: flex;
             align-items: center;
             border-bottom: 2px solid #808080;
-            
-            /* Mantenemos el iconito de carpeta de Windows */
             background-image: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 16 16"><path fill="%23ffcc00" d="M1 3h5l1 1h8v9H1z"/><path fill="%23ffffff" d="M1 4h5l1 1h7v1H1z"/></svg>');
             background-repeat: no-repeat;
             background-position: 10px center;
-            padding-left: 35px; /* Espacio para el icono */
-            padding-right: 80px; /* Espacio para los botones de la ventana */
+            padding-left: 35px;
+            padding-right: 80px;
         }
 
         .window-controls {
@@ -148,53 +143,21 @@
         }
         
         .window-controls button:active {
-            border-color: #808080 #ffffff #ffffff #808080; /* Efecto de botón presionado */
+            border-color: #808080 #ffffff #ffffff #808080;
         }
         
         .window-controls .close {
-            font-family: Arial, sans-serif; /* La X se ve mejor en Arial */
+            font-family: Arial, sans-serif;
         }
         
-        /* El texto de la descripción */
         .tarjeta p {
             padding: 15px;
             margin: 0;
             font-size: 1.2rem;
-            color: #000000; /* Asegúrate de que se lea en el fondo gris */
+            color: #000000;
             font-family: 'VT323', monospace;
         }
-        
-        /* Ajuste para las etiquetas (tags) */
-        .tag {
-            font-size: 0.9rem;
-            background-color: #c0c0c0;
-            padding: 2px 6px;
-            color: #000000;
-            position: absolute;
-            top: 5px;
-            right: 60px; /* Movido a la izquierda para no chocar con los botones */
-            border: 1px solid;
-            border-color: #808080 #ffffff #ffffff #808080; /* Efecto hundido */
-        }
 
-        .tag-closed {
-            color: #ff7b72;
-            border: 1px solid #ff7b72;
-            background-color: rgba(255, 123, 114, 0.15);
-        }
-        
-        .tag-open {
-            color: #3fb950;
-            border: 1px solid #3fb950;
-            background-color: rgba(63, 185, 80, 0.15);
-        }
-
-        .tag-pending {
-            color: #ffbc21;
-            border: 1px solid #ffbc21;
-            background-color: rgba(255, 188, 33, 0.15);
-        }
-        
         .tarjeta p {
             font-size: 1.1rem;
             color: #8b949e;
@@ -241,19 +204,26 @@
                     <button>□</button>
                     <button class="close">X</button>
                 </div>
-                <span class="tag tag-pending">in progress</span>
                 <p>Sample project 1.</p>
             </a>
 
             <a href="https://github.com/sebryxs11" class="tarjeta">
                 <h2>Project</h2>
-                <span class="tag tag-pending">in progress</span>
+                <div class="window-controls">
+                    <button>_</button>
+                    <button>□</button>
+                    <button class="close">X</button>
+                </div>
                 <p>Sample project 2.</p>
             </a>
 
             <a href="https://github.com/sebryxs11" class="tarjeta">
                 <h2>Project</h2>
-                <span class="tag tag-pending">in progress</span>
+                <div class="window-controls">
+                    <button>_</button>
+                    <button>□</button>
+                    <button class="close">X</button>
+                </div>
                 <p>Sample project 3.</p>
             </a>
 
