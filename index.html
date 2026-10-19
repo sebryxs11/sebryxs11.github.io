@@ -7,22 +7,20 @@
     <link href="https://fonts.googleapis.com/css2?family=VT323&display=swap" rel="stylesheet">
     <link rel="icon" type="image/png" href="favicon.png">
     <style>
+        /* --- ESTILOS GENERALES --- */
         body {
             font-family: 'VT323', monospace;
             max-width: 1200px;
             margin: 0 auto;
             padding: 80px 80px 200px 80px;
             background-color: #212121;
-            color: #333;
+            color: #333; /* Color base del texto */
         }
         
+        /* --- MARCO ANIMADO --- */
         @keyframes alternarMarcos {
-            0%, 49% { 
-                background-image: url('puas1.png');
-            }
-            50%, 100% { 
-                background-image: url('puas2.png');
-            }
+            0%, 49% { background-image: url('puas1.png'); }
+            50%, 100% { background-image: url('puas2.png'); }
         }
         
         .marco-animado {
@@ -31,16 +29,14 @@
             left: 0;
             width: 100vw;
             height: 100vh;
-            
             animation: alternarMarcos 1s infinite;
-
             background-size: 100% 100%;
             background-repeat: no-repeat;
-                
             pointer-events: none;
             z-index: 9999;
         }
 
+        /* --- SECCIÓN PRINCIPAL (HERO) --- */
         .hero {
             text-align: center;
             margin-bottom: 60px;
@@ -56,32 +52,48 @@
         .hero p {
             font-size: 1.5rem;
             max-width: 700px;
-            margin: 15px auto 15px auto;
+            margin: 15px auto;
             line-height: 1.0;
             color: #c2c2c2;
             text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.8); 
         }
 
-        .hero p2 {
-            font-size: 2.0rem;
-            max-width: 700px;
-            margin: 15px auto 15px auto;
-            line-height: 1.0;
-            color: #c2c2c2;
-            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.8); 
+        /* Reemplazo correcto para el <p2> */
+        .destacado {
+            font-size: 2.0rem !important; 
+            color: #ffffff !important;
+            margin-top: 25px !important;
+            margin-bottom: 25px !important;
         }
         
         .enlaces {
             color: #c2c2c2;
             font-weight: bold;
         }
+        
+        .etiqueta {
+            color: #c2c2c2;
+        }
+        
+        .enlaces a {
+            color: #ffbc21;
+            text-decoration: none;
+            transition: color 0.2s;
+        }
+        
+        .enlaces a:hover {
+            color: #ffffff;
+            text-shadow: 0 0 8px rgba(255, 255, 255, 0.5);
+        }
 
+        /* --- CUADRÍCULA DE PROYECTOS --- */
         .proyectos-grid {
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
             gap: 20px;
         }
         
+        /* --- ESTILO VENTANA WINDOWS 98 --- */
         .tarjeta {
             background-color: #c0c0c0;
             border: 3px solid;
@@ -93,17 +105,18 @@
             flex-direction: column;
             position: relative;
             box-shadow: 2px 2px 0px rgba(0, 0, 0, 0.5);
-            transition: background-color 0.2s;
+            transition: transform 0.1s, background-color 0.2s;
             margin-bottom: 20px;
         }
         
         .tarjeta:hover {
             background-color: #d4d4d4;
+            transform: scale(1.02); /* Efecto de que la ventana se agranda un poquito */
         }
         
         .tarjeta h2 {
             margin: 0;
-            padding: 5px 10px;
+            padding: 5px 10px 5px 35px; /* Espacio para el icono */
             background: linear-gradient(to right, #b8860b, #ffbc21); 
             color: #000000;
             font-size: 1.5rem;
@@ -113,16 +126,17 @@
             background-image: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 16 16"><path fill="%23ffcc00" d="M1 3h5l1 1h8v9H1z"/><path fill="%23ffffff" d="M1 4h5l1 1h7v1H1z"/></svg>');
             background-repeat: no-repeat;
             background-position: 10px center;
-            padding-left: 35px;
-            padding-right: 80px;
+            padding-right: 80px; /* Espacio para los botones */
         }
 
+        /* Botones de la ventana */
         .window-controls {
             position: absolute;
             top: 4px;
             right: 5px;
             display: flex;
             gap: 2px;
+            pointer-events: none; /* Evita que los botones interfieran con el clic del enlace */
         }
         
         .window-controls button {
@@ -138,7 +152,6 @@
             display: flex;
             align-items: center;
             justify-content: center;
-            cursor: pointer;
             padding: 0;
         }
         
@@ -150,31 +163,12 @@
             font-family: Arial, sans-serif;
         }
         
+        /* Texto de la tarjeta */
         .tarjeta p {
             padding: 15px;
             margin: 0;
             font-size: 1.2rem;
-            color: #000000;
-            font-family: 'VT323', monospace;
-        }
-
-        .tarjeta p {
-            font-size: 1.1rem;
-            color: #8b949e;
-            margin-bottom: 0;
-        }
-        .etiqueta {
-            color: #c2c2c2;
-        }
-        
-        .enlaces a {
-            color: #ffbc21;
-            text-decoration: none;
-            transition: color 0.2s;
-        }
-        
-        .enlaces a:hover {
-            color: #ffffff;
+            color: #000000; /* Aseguramos que el texto sea negro */
         }
     </style>
 </head>
@@ -186,7 +180,10 @@
         <header class="hero">
             <h1>Software Engineer | Math Student</h1>
             <p>I'm a Mathematics student at UNAM passionate about algorithmic problem-solving. From competing at the IOI and ICPC to being coach of multiple IOI medalists.</p>
-            <p2> Interested in coaching? Let's talk.</p2>
+            
+            <!-- Cambié el <p2> por <p class="destacado"> -->
+            <p class="destacado">Interested in coaching? Let's talk.</p>
+            
             <p class="enlaces">
                 <span class="etiqueta">github:</span> <a href="https://github.com/sebryxs11" target="_blank">@sebryxs11</a>
             </p>
@@ -197,6 +194,7 @@
 
         <section class="proyectos-grid">
             
+            <!-- Proyecto 1 -->
             <a href="https://github.com/sebryxs11" class="tarjeta">
                 <h2>Project</h2>
                 <div class="window-controls">
@@ -207,6 +205,7 @@
                 <p>Sample project 1.</p>
             </a>
 
+            <!-- Proyecto 2 -->
             <a href="https://github.com/sebryxs11" class="tarjeta">
                 <h2>Project</h2>
                 <div class="window-controls">
@@ -217,6 +216,7 @@
                 <p>Sample project 2.</p>
             </a>
 
+            <!-- Proyecto 3 -->
             <a href="https://github.com/sebryxs11" class="tarjeta">
                 <h2>Project</h2>
                 <div class="window-controls">
